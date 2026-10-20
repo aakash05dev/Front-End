@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists, Tables and Embedded Content</title>
+
+</head>
+
+<body>
+
+    <h1>My Favorite Movies</h1>
+
+    <!-- Unordered List -->
+    <h2>1. Shopping List</h2>
+
+    <ul>
+        <li>Popcorn</li>
+        <li>Soft Drink</li>
+        <li>Chips</li>
+        <li>Chocolate</li>
+    </ul>
+
+    <!-- Ordered List -->
+    <h2>2. Steps to Watch a Movie</h2>
+
+    <ol>
+        <li>Choose a movie</li>
+        <li>Buy tickets</li>
+        <li>Go to the theatre</li>
+        <li>Watch the movie</li>
+    </ol>
+
+    <!-- Nested List -->
+    <h2>3. Nested List</h2>
+
+    <ul>
+        <li>Action Movies
+            <ul>
+                <li>Leo</li>
+                <li>Jailer</li>
+                <li>Vikram</li>
+            </ul>
+        </li>
+
+        <li>Comedy Movies
+            <ul>
+                <li>Doctor</li>
+                <li>Boss</li>
+            </ul>
+        </li>
+
+        <li>Animated Movies
+            <ul>
+                <li>Toy Story</li>
+                <li>Frozen</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <!-- Movie List -->
+    <h2>4. My Favorite Movies</h2>
+
+    <ol>
+        <li>Leo</li>
+        <li>Jailer</li>
+        <li>Vikram</li>
+        <li>Master</li>
+        <li>Interstellar</li>
+    </ol>
+
+    <hr>
+
+    <!-- Table -->
+    <h2>5. Movie Details Table</h2>
+
+    <table>
+        <tr>
+            <th>Movie ID</th>
+            <th>Movie Name</th>
+            <th>Language</th>
+            <th>Year</th>
+            <th>Rating</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Leo</td>
+            <td>Tamil</td>
+            <td>2023</td>
+            <td>8.0</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Jailer</td>
+            <td>Tamil</td>
+            <td>2023</td>
+            <td>7.1</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Vikram</td>
+            <td>Tamil</td>
+            <td>2022</td>
+            <td>8.3</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Master</td>
+            <td>Tamil</td>
+            <td>2021</td>
+            <td>7.3</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- Colspan -->
+    <h2>6. Colspan Example</h2>
+
+    <table>
+        <tr>
+            <th colspan="3">Movie Information</th>
+        </tr>
+
+        <tr>
+            <th>Name</th>
+            <th>Language</th>
+            <th>Year</th>
+        </tr>
+
+        <tr>
+            <td>Leo</td>
+            <td>Tamil</td>
+            <td>2023</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- Rowspan -->
+    <h2>7. Rowspan Example</h2>
+
+    <table>
+        <tr>
+            <th>Movie</th>
+            <th>Category</th>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Leo</td>
+            <td>Action</td>
+        </tr>
+
+        <tr>
+            <td>Drama</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- Iframe -->
+    <h2>8. YouTube Trailer Using iframe</h2>
+
+    <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/po10qO2H6ZI"
+        title="Movie Trailer"
+        allowfullscreen>
+    </iframe>
+
+    <hr>
+
+    <!-- Google Map iframe -->
+    <h2>9. Google Map Using iframe</h2>
+
+    <iframe
+        src="https://www.google.com/maps?q=Chennai&output=embed"
+        width="600"
+        height="300"
+        title="Google Map">
+    </iframe>
+
+    <hr>
+
+    <!-- Audio -->
+    <h2>10. Audio</h2>
+
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
+
+    <hr>
+
+    <!-- Video -->
+    <h2>11. Video</h2>
+
+    <video width="500" height="300" controls>
+        <source src="movie.mp4" type="video/mp4">
+        Your browser does not support video.
+    </video>
+
+    <hr>
+
+    <!-- Embed PDF -->
+    <h2>12. PDF Using Embed</h2>
+
+    <embed
+        src="sample.pdf"
+        type="application/pdf"
+        width="600"
+        height="400">
+
+    <hr>
+
+    <!-- Object PDF -->
+    <h2>13. PDF Using Object</h2>
+
+    <object
+        data="sample.pdf"
+        type="application/pdf"
+        width="600"
+        height="400">
+
+        <p>PDF cannot be displayed.</p>
+
+    </object>
+
+    <hr>
+
+    <footer>
+        <p>© 2026 My Favorite Movies</p>
+    </footer>
+
+</body>
+
+</html>

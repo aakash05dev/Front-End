@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Programs 12-20</title>
+</head>
+<body>
+  <h1>Loop Exercise 2</h1>
+
+  <script>
+    // 12. Factorial of a given number
+    let num = 5;
+    console.log("12. Factorial of", num);
+    let fact=1;
+    for(let i=1;i<=num;i++) fact*=i;
+    console.log("For:",fact);
+    fact=1; let i=1; while(i<=num){ fact*=i; i++; }
+    console.log("While:",fact);
+    fact=1; i=1; do{ fact*=i; i++; }while(i<=num);
+    console.log("Do While:",fact);
+
+    // 13. Prime check
+    let primeNum=29;
+    console.log("13. Prime check:",primeNum);
+    let isPrime=true;
+    for(let j=2;j<=Math.sqrt(primeNum);j++){ if(primeNum%j===0){ isPrime=false; break; } }
+    console.log("For:",isPrime);
+    j=2; isPrime=true; while(j<=Math.sqrt(primeNum)){ if(primeNum%j===0){ isPrime=false; break; } j++; }
+    console.log("While:",isPrime);
+    j=2; isPrime=true; do{ if(primeNum%j===0){ isPrime=false; break; } j++; }while(j<=Math.sqrt(primeNum));
+    console.log("Do While:",isPrime);
+
+    // 14. Prime series up to 50
+    console.log("14. Prime series up to 50");
+    function isPrimeFunc(n){ if(n<2) return false; for(let k=2;k<=Math.sqrt(n);k++){ if(n%k===0) return false; } return true; }
+    for(let n=2;n<=50;n++){ if(isPrimeFunc(n)) console.log("For:",n); }
+    let n=2; while(n<=50){ if(isPrimeFunc(n)) console.log("While:",n); n++; }
+    n=2; do{ if(isPrimeFunc(n)) console.log("Do While:",n); n++; }while(n<=50);
+
+    // 15. Armstrong check
+    let armNum=153;
+    console.log("15. Armstrong check:",armNum);
+    let sum=0; let temp=armNum;
+    for(;temp>0;){ let d=temp%10; sum+=d*d*d; temp=Math.floor(temp/10); }
+    console.log("For:",sum===armNum);
+    temp=armNum; sum=0; while(temp>0){ let d=temp%10; sum+=d*d*d; temp=Math.floor(temp/10); }
+    console.log("While:",sum===armNum);
+    temp=armNum; sum=0; do{ let d=temp%10; sum+=d*d*d; temp=Math.floor(temp/10); }while(temp>0);
+    console.log("Do While:",sum===armNum);
+
+    // 16. Armstrong series up to 500
+    console.log("16. Armstrong series up to 500");
+    function isArmstrong(x){ let s=0,t=x; while(t>0){ let d=t%10; s+=d*d*d; t=Math.floor(t/10);} return s===x; }
+    for(let a=1;a<=500;a++){ if(isArmstrong(a)) console.log("For:",a); }
+    let a=1; while(a<=500){ if(isArmstrong(a)) console.log("While:",a); a++; }
+    a=1; do{ if(isArmstrong(a)) console.log("Do While:",a); a++; }while(a<=500);
+
+    // 17. Fibonacci series up to 10 terms
+    console.log("17. Fibonacci series");
+    let f1=0,f2=1;
+    for(let c=1;c<=10;c++){ console.log("For:",f1); let next=f1+f2; f1=f2; f2=next; }
+    f1=0; f2=1; let c=1; while(c<=10){ console.log("While:",f1); let next=f1+f2; f1=f2; f2=next; c++; }
+    f1=0; f2=1; c=1; do{ console.log("Do While:",f1); let next=f1+f2; f1=f2; f2=next; c++; }while(c<=10);
+
+    // 18. Print 5 table
+    console.log("18. Table of 5");
+    for(let t=1;t<=10;t++) console.log("For:",t*5);
+    t=1; while(t<=10){ console.log("While:",t*5); t++; }
+    t=1; do{ console.log("Do While:",t*5); t++; }while(t<=10);
+
+    // 19. Sum of digits of 1234
+    let sd=1234; console.log("19. Sum of digits:",sd);
+    let s=0; for(let tmp=sd;tmp>0;tmp=Math.floor(tmp/10)){ s+=tmp%10; }
+    console.log("For:",s);
+    s=0; let tmp=sd; while(tmp>0){ s+=tmp%10; tmp=Math.floor(tmp/10); }
+    console.log("While:",s);
+    s=0; tmp=sd; do{ s+=tmp%10; tmp=Math.floor(tmp/10); }while(tmp>0);
+    console.log("Do While:",s);
+
+    // 20. Palindrome check
+    let str="MALAYALAM";
+    console.log("20. Palindrome check:",str);
+    let rev="";
+    for(let p=str.length-1;p>=0;p--) rev+=str[p];
+    console.log("For:",rev===str);
+    p=str.length-1; rev=""; while(p>=0){ rev+=str[p]; p--; }
+    console.log("While:",rev===str);
+    p=str.length-1; rev=""; do{ rev+=str[p]; p--; }while(p>=0);
+    console.log("Do While:",rev===str);
+
+  </script>
+</body>
+</html>

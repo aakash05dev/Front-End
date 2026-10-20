@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Array Programs</title>
+</head>
+
+<body>
+
+    <h1>JavaScript Array Programs</h1>
+
+    <script>
+
+        // Array
+        let arr = [10, 20, 30, 20, -5, 40, 10, -15, 50];
+
+
+        // 1. Find Sum and Average
+        let sum = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            sum = sum + arr[i];
+        }
+
+        let average = sum / arr.length;
+
+        console.log("1. Sum =", sum);
+        console.log("1. Average =", average);
+
+
+        // 2. Find Largest Element
+        let largest = arr[0];
+
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+
+        console.log("2. Largest =", largest);
+
+
+        // 3. Find Smallest Element
+        let smallest = arr[0];
+
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < smallest) {
+                smallest = arr[i];
+            }
+        }
+
+        console.log("3. Smallest =", smallest);
+
+
+        // 4. Count Positive and Negative Numbers
+        let positive = 0;
+        let negative = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i] > 0) {
+                positive++;
+            }
+            else if (arr[i] < 0) {
+                negative++;
+            }
+
+        }
+
+        console.log("4. Positive Count =", positive);
+        console.log("4. Negative Count =", negative);
+
+
+        // 5. Print Duplicate Elements
+        let duplicates = [];
+
+        for (let i = 0; i < arr.length; i++) {
+
+            for (let j = i + 1; j < arr.length; j++) {
+
+                if (arr[i] === arr[j] &&
+                    !duplicates.includes(arr[i])) {
+
+                    duplicates.push(arr[i]);
+                }
+
+            }
+
+        }
+
+        console.log("5. Duplicate Elements =", duplicates);
+
+
+        // 6. Search an Element
+        let search = 30;
+        let found = false;
+
+        for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i] === search) {
+                found = true;
+                break;
+            }
+
+        }
+
+        if (found) {
+            console.log("6. Element", search, "is Found");
+        }
+        else {
+            console.log("6. Element", search, "is Not Found");
+        }
+
+
+        // 7. Frequency of Each Element
+        let frequency = {};
+
+        for (let i = 0; i < arr.length; i++) {
+
+            let value = arr[i];
+
+            if (frequency[value]) {
+                frequency[value]++;
+            }
+            else {
+                frequency[value] = 1;
+            }
+
+        }
+
+        console.log("7. Frequency =", frequency);
+
+
+        // 8. Check Whether Array is Sorted
+        let sortedArray = [10, 20, 30, 40, 50];
+        let isSorted = true;
+
+        for (let i = 0; i < sortedArray.length - 1; i++) {
+
+            if (sortedArray[i] > sortedArray[i + 1]) {
+                isSorted = false;
+                break;
+            }
+
+        }
+
+        if (isSorted) {
+            console.log("8. Array is Sorted");
+        }
+        else {
+            console.log("8. Array is Not Sorted");
+        }
+
+
+        // 9. Find Missing Number from 1 to n
+        let numbers = [1, 2, 3, 5, 6];
+        let n = 6;
+
+        let total = n * (n + 1) / 2;
+        let arraySum = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+            arraySum = arraySum + numbers[i];
+        }
+
+        let missing = total - arraySum;
+
+        console.log("9. Missing Number =", missing);
+
+
+        // 10. Separate Even and Odd Numbers
+        let even = [];
+        let odd = [];
+
+        for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i] % 2 === 0) {
+                even.push(arr[i]);
+            }
+            else {
+                odd.push(arr[i]);
+            }
+
+        }
+
+        console.log("10. Even Numbers =", even);
+        console.log("10. Odd Numbers =", odd);
+
+    </script>
+
+</body>
+</html>

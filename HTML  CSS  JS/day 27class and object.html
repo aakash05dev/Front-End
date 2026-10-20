@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<script>
+// 1. Student Class
+class Student {
+    constructor(name, age, course) {
+        this.name = name;
+        this.age = age;
+        this.course = course;
+    }
+}
+
+let student = new Student("Ayyanar", 21, "Python Full Stack");
+console.log("1. Student Details");
+console.log(student);
+
+// 2. Employee Class
+class Employee {
+    constructor(id, name, salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    display() {
+        console.log("2. Employee Details");
+        console.log("ID:", this.id);
+        console.log("Name:", this.name);
+        console.log("Salary:", this.salary);
+    }
+}
+
+let emp = new Employee(101, "Arun", 35000);
+emp.display();
+
+// 3. Rectangle Class
+class Rectangle {
+    constructor(length, width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    area() {
+        return this.length * this.width;
+    }
+}
+
+let rect = new Rectangle(10, 5);
+console.log("3. Rectangle Area:", rect.area());
+
+// 4. Circle Class
+class Circle {
+    constructor(radius) {
+        this.radius = radius;
+    }
+
+    circumference() {
+        return 2 * Math.PI * this.radius;
+    }
+}
+
+let circle = new Circle(7);
+console.log("4. Circle Circumference:", circle.circumference().toFixed(2));
+
+// 5. BankAccount Class
+class BankAccount {
+    constructor(accountNumber, balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    deposit(amount) {
+        this.balance += amount;
+        console.log("Deposited:", amount);
+    }
+
+    withdrawal(amount) {
+        if (amount <= this.balance) {
+            this.balance -= amount;
+            console.log("Withdrawn:", amount);
+        } else {
+            console.log("Insufficient Balance");
+        }
+    }
+
+    miniStatement() {
+        console.log("Account No:", this.accountNumber);
+        console.log("Balance:", this.balance);
+    }
+}
+
+let account = new BankAccount(123456789, 10000);
+account.deposit(2000);
+account.withdrawal(3000);
+console.log("5. Mini Statement");
+account.miniStatement();
+
+// 6. Car Class
+class Car {
+    constructor(brand, model, year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    display() {
+        console.log("6. Car Details");
+        console.log("Brand:", this.brand);
+        console.log("Model:", this.model);
+        console.log("Year:", this.year);
+    }
+}
+
+let car = new Car("Toyota", "Innova", 2024);
+car.display();
+
+// 7. Inheritance
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    personDetails() {
+        console.log("Person Name:", this.name);
+        console.log("Age:", this.age);
+    }
+}
+
+class EmployeeDetails extends Person {
+    constructor(name, age, job) {
+        super(name, age);
+        this.job = job;
+    }
+
+    employeeDetails() {
+        this.personDetails();
+        console.log("Job:", this.job);
+    }
+}
+
+let emp2 = new EmployeeDetails("Kumar", 28, "Software Developer");
+console.log("7. Inheritance");
+emp2.employeeDetails();
+
+// 8. Method Overriding
+class Animal {
+    sound() {
+        console.log("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    sound() {
+        console.log("Dog says: Bark");
+    }
+}
+
+class Cat extends Animal {
+    sound() {
+        console.log("Cat says: Meow");
+    }
+}
+
+console.log("8. Method Overriding");
+let dog = new Dog();
+dog.sound();
+
+let cat = new Cat();
+cat.sound();
+
+// 9. Book Class
+class Book {
+    constructor(title, author, price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    display() {
+        console.log("9. Book Details");
+        console.log("Title:", this.title);
+        console.log("Author:", this.author);
+        console.log("Price:", this.price);
+    }
+}
+
+let book = new Book("JavaScript Basics", "John", 450);
+book.display();
+
+// 10. Calculator Class
+class Calculator {
+    add(a, b) {
+        return a + b;
+    }
+
+    subtract(a, b) {
+        return a - b;
+    }
+
+    multiply(a, b) {
+        return a * b;
+    }
+
+    divide(a, b) {
+        return a / b;
+    }
+}
+
+let calc = new Calculator();
+
+console.log("10. Calculator");
+console.log("Addition:", calc.add(10, 5));
+console.log("Subtraction:", calc.subtract(10, 5));
+console.log("Multiplication:", calc.multiply(10, 5));
+console.log("Division:", calc.divide(10, 5));
+
+</script>
+<h2>JS Class & Objects Assignment</h2>
+
+</body>
+</html>

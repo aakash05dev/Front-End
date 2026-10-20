@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM Basic Tasks</title>
+</head>
+<body>
+
+<h1>JavaScript DOM Basic Tasks</h1>
+
+<!-- 1. getElementById() -->
+<h2 id="heading1">Welcome</h2>
+<button onclick="changeHeading()">Change Heading</button>
+
+<hr>
+
+<!-- 2. getElementById() -->
+<p id="para1">This is a sample paragraph.</p>
+<button onclick="changeParagraph()">Change Paragraph Style</button>
+
+<hr>
+
+<!-- 3. getElementsByTagName() -->
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<p>Paragraph 3</p>
+<p>Paragraph 4</p>
+<button onclick="changeParagraphs()">Change All Paragraphs to Green</button>
+
+<hr>
+
+<!-- 4. getElementsByTagName() -->
+<ul id="list">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+    <li>Mango</li>
+    <li>Grapes</li>
+</ul>
+<button onclick="countItems()">Count List Items</button>
+<p id="count"></p>
+
+<hr>
+
+<!-- 5. getElementsByClassName() -->
+<p class="same">Class Paragraph 1</p>
+<p class="same">Class Paragraph 2</p>
+<p class="same">Class Paragraph 3</p>
+<button onclick="changeBackground()">Change Background</button>
+
+<hr>
+
+<!-- 6. getElementsByClassName() -->
+<button class="btn">Button 1</button>
+<button class="btn">Button 2</button>
+<button class="btn">Button 3</button>
+<button class="btn">Button 4</button>
+<br><br>
+<button onclick="disableButtons()">Disable All Buttons</button>
+
+<hr>
+
+<!-- 7. querySelector() -->
+<h2 id="title">Old Heading</h2>
+<button onclick="changeTitle()">Change Title</button>
+
+<hr>
+
+<!-- 8. querySelectorAll() -->
+<div class="box">Element 1</div>
+<div class="box">Element 2</div>
+<div class="box">Element 3</div>
+<div class="box">Element 4</div>
+<div class="box">Element 5</div>
+<br>
+<button onclick="changeBoxes()">Change All Elements</button>
+
+<script>
+    // 1
+    function changeHeading() {
+        document.getElementById("heading1").innerHTML = "Heading Changed!";
+    }
+
+    // 2
+    function changeParagraph() {
+        var p = document.getElementById("para1");
+        p.style.color = "blue";
+        p.style.fontSize = "25px";
+    }
+
+    // 3
+    function changeParagraphs() {
+        var p = document.getElementsByTagName("p");
+        for (var i = 0; i < p.length; i++) {
+            p[i].style.color = "green";
+        }
+    }
+
+    // 4
+    function countItems() {
+        var items = document.getElementsByTagName("li");
+        document.getElementById("count").innerHTML = "Total List Items: " + items.length;
+    }
+
+    // 5
+    function changeBackground() {
+        var p = document.getElementsByClassName("same");
+        for (var i = 0; i < p.length; i++) {
+            p[i].style.backgroundColor = "yellow";
+        }
+    }
+
+    // 6
+    function disableButtons() {
+        var b = document.getElementsByClassName("btn");
+        for (var i = 0; i < b.length; i++) {
+            b[i].disabled = true;
+        }
+    }
+
+    // 7
+    function changeTitle() {
+        document.querySelector("#title").innerHTML = "New Heading using querySelector()";
+    }
+
+    // 8
+    function changeBoxes() {
+        var box = document.querySelectorAll(".box");
+        for (var i = 0; i < box.length; i++) {
+            box[i].style.color = "red";
+            box[i].style.fontStyle = "italic";
+        }
+    }
+</script>
+
+</body>
+</html>

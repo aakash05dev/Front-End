@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DAY 26 - JS Events & addEventListener</title>
+</head>
+<body>
+
+<h1>DAY 26 - JavaScript Events & addEventListener</h1>
+
+<hr>
+
+<!-- Task 1 -->
+<h2>1. Click Event</h2>
+<button id="btnClick">Click Me</button>
+<p id="clickMsg"></p>
+
+<hr>
+
+<!-- Task 2 -->
+<h2>2. Double Click Event</h2>
+<button id="btnDbl">Double Click Me</button>
+<p id="dblMsg"></p>
+
+<hr>
+
+<!-- Task 3 -->
+<h2>3. Mouse Over Event</h2>
+<div id="box" style="width:200px;height:80px;border:1px solid black;">
+    Move Mouse Here
+</div>
+
+<hr>
+
+<!-- Task 4 -->
+<h2>4. Keyup Event</h2>
+<input type="text" id="name" placeholder="Type your name">
+<p id="showName"></p>
+
+<hr>
+
+<!-- Task 5 -->
+<h2>5. Change Event</h2>
+<select id="course">
+    <option>Select Course</option>
+    <option>Java</option>
+    <option>Python</option>
+    <option>Full Stack</option>
+</select>
+<p id="courseMsg"></p>
+
+<hr>
+
+<!-- Task 6 -->
+<h2>6. Focus & Blur Event</h2>
+<input type="text" id="focusBox" placeholder="Click here">
+
+<hr>
+
+<!-- Task 7 -->
+<h2>7. Submit Event</h2>
+<form id="myForm">
+    <input type="text" placeholder="Enter Name" required>
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+
+<!-- Task 8 -->
+<h2>8. Mouse Leave Event</h2>
+<div id="leaveBox" style="width:200px;height:80px;border:1px solid black;">
+    Move Mouse Out
+</div>
+
+<script>
+// Task 1
+document.getElementById("btnClick").addEventListener("click", function () {
+    document.getElementById("clickMsg").innerHTML = "Button Clicked!";
+});
+
+// Task 2
+document.getElementById("btnDbl").addEventListener("dblclick", function () {
+    document.getElementById("dblMsg").innerHTML = "Button Double Clicked!";
+});
+
+// Task 3
+document.getElementById("box").addEventListener("mouseover", function () {
+    this.style.backgroundColor = "yellow";
+});
+
+// Task 4
+document.getElementById("name").addEventListener("keyup", function () {
+    document.getElementById("showName").innerHTML = this.value;
+});
+
+// Task 5
+document.getElementById("course").addEventListener("change", function () {
+    document.getElementById("courseMsg").innerHTML = "Selected: " + this.value;
+});
+
+// Task 6
+document.getElementById("focusBox").addEventListener("focus", function () {
+    this.style.backgroundColor = "lightgreen";
+});
+
+document.getElementById("focusBox").addEventListener("blur", function () {
+    this.style.backgroundColor = "white";
+});
+
+// Task 7
+document.getElementById("myForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Form Submitted Successfully!");
+});
+
+// Task 8
+document.getElementById("leaveBox").addEventListener("mouseleave", function () {
+    this.style.backgroundColor = "lightblue";
+});
+</script>
+
+</body>
+</html>

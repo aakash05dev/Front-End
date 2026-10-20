@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Methods Demo</title>
+</head>
+<body>
+  <h1>Arrays</h1>
+
+  <script>
+    // Initial array
+     let cities = ["Kallakurchi", "Villupuram", "Cuddalur", "Selam"];
+
+    console.log(" Array:", cities);
+
+    let numbers = [5, 8, 12, 3, 7];
+
+    console.log("Array:", numbers);
+
+    // push - add element at end
+    numbers.push(20);
+    console.log("After push(20):", numbers);
+
+    // pop - remove last element
+    numbers.pop();
+    console.log("After pop():", numbers);
+
+    // unshift - add element at beginning
+    numbers.unshift(1);
+    console.log("After unshift(1):", numbers);
+
+    // shift - remove first element
+    numbers.shift();
+    console.log("After shift():", numbers);
+
+    // Print all elements using for loop
+    console.log("Print all elements using for loop:");
+    for (let i = 0; i < numbers.length; i++) {
+      console.log(numbers[i]);
+    }
+
+    // map - double all numbers
+    let doubled = numbers.map(num => num * 2);
+    console.log("Doubled Array:", doubled);
+
+    // filter - get even numbers
+    let evens = numbers.filter(num => num % 2 === 0);
+    console.log("Even Numbers:", evens);
+
+    // reduce - sum of array
+    let sum = numbers.reduce((acc, num) => acc + num, 0);
+    console.log("Sum of Array:", sum);
+
+    // find - first number greater than 10
+    let firstGreater = numbers.find(num => num > 10);
+    console.log("First number > 10:", firstGreater);
+
+    // includes - check if array has a specific value
+    console.log("Array includes 7?", numbers.includes(7));
+    console.log("Array includes 100?", numbers.includes(100));
+  </script>
+</body>
+</html>

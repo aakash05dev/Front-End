@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>20 Loop Exercises</title>
+</head>
+<body>
+  <h1>JS Functions</h1>
+
+  <script>
+    // Helper: factorial
+    function factorial(n){ return n===0?1:n*factorial(n-1); }
+
+    // Helper: check prime
+    function isPrime(num){
+      if(num<2) return false;
+      for(let i=2;i<=Math.sqrt(num);i++) if(num%i===0) return false;
+      return true;
+    }
+
+    // Helper: Armstrong check
+    function isArmstrong(num){
+      let str=num.toString(), sum=0;
+      for(let ch of str) sum+=Math.pow(+ch,str.length);
+      return sum===num;
+    }
+
+    // 1. Series 1 to 20
+    console.log("1:", [...Array(20).keys()].map(x=>x+1).join(" "));
+
+    // 2. Odd series
+    console.log("2:", [...Array(20).keys()].filter(x=>x%2===1).join(" "));
+
+    // 3. Even series
+    console.log("3:", [...Array(21).keys()].filter(x=>x%2===0).join(" "));
+
+    // 4. Multiples of 5
+    console.log("4:", [...Array(6).keys()].map(x=>x*5).join(" "));
+
+    // 5. Sum 1..10
+    console.log("5:", [...Array(11).keys()].reduce((a,b)=>a+b,0));
+
+    // 6. Sum even up to 10
+    console.log("6:", [...Array(11).keys()].filter(x=>x%2===0).reduce((a,b)=>a+b,0));
+
+    // 7. Sum odd up to 10
+    console.log("7:", [...Array(11).keys()].filter(x=>x%2===1).reduce((a,b)=>a+b,0));
+
+    // 8. Sum multiples of 5 up to 20
+    console.log("8:", [...Array(5).keys()].map(x=>x*5).reduce((a,b)=>a+b,0));
+
+    // 9. Series 1/n!
+    let s9=0; for(let i=1;i<=4;i++) s9+=i/factorial(i);
+    console.log("9:", s9);
+
+    // 10. Even series n/n!
+    let s10=0; for(let i=2;i<=6;i+=2) s10+=i/factorial(i);
+    console.log("10:", s10);
+
+    // 11. Odd series n/n!
+    let s11=0; for(let i=1;i<=5;i+=2) s11+=i/factorial(i);
+    console.log("11:", s11);
+
+    // 12. Factorial of 5
+    console.log("12: Factorial(5) =", factorial(5));
+
+    // 13. Prime check
+    let num=17;
+    console.log("13:", num, isPrime(num)?"is Prime":"is Not Prime");
+
+    // 14. Prime series up to 50
+    console.log("14:", [...Array(51).keys()].filter(isPrime).join(" "));
+
+    // 15. Armstrong check
+    let numA=153;
+    console.log("15:", numA, isArmstrong(numA)?"is Armstrong":"is Not Armstrong");
+
+    // 16. Armstrong series up to 1000
+    let armSeries=[];
+    for(let i=1;i<=1000;i++) if(isArmstrong(i)) armSeries.push(i);
+    console.log("16:", armSeries.join(" "));
+
+    // 17. Fibonacci series up to 10 terms
+    let fib=[0,1];
+    for(let i=2;i<10;i++) fib[i]=fib[i-1]+fib[i-2];
+    console.log("17:", fib.join(" "));
+
+    // 18. Table of 5
+    console.log("18:");
+    for(let i=1;i<=10;i++) console.log(`${i} * 5 = ${i*5}`);
+
+    // 19. Sum of digits
+    let numD=12345, sumD=0;
+    for(let ch of numD.toString()) sumD+=+ch;
+    console.log("19: Sum of digits of", numD, "=", sumD);
+
+    // 20. Palindrome check
+    function isPalindrome(str){
+      return str===str.split("").reverse().join("");
+    }
+    let words=["BAAB","MALAYALAM","HELLO"];
+    for(let w of words) console.log("20:", w, isPalindrome(w)?"Palindrome":"Not Palindrome");
+  </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Assignment</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding-top:80px;
+    background:#f4f4f4;
+}
+
+/* Task 7 - Fixed Header */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:#2c3e50;
+    color:white;
+    text-align:center;
+    line-height:70px;
+    font-size:28px;
+    z-index:1000;
+}
+
+section{
+    margin:20px;
+    padding:15px;
+    background:white;
+    border-radius:8px;
+}
+
+/* Task 1 */
+.task1 span{
+    display:block;
+    width:200px;
+    padding:10px;
+    margin:5px 0;
+    background:skyblue;
+}
+
+/* Task 2 */
+.task2 div{
+    display:inline-block;
+    padding:15px;
+    margin:5px;
+    color:white;
+}
+.d1{background:red;}
+.d2{background:green;}
+.d3{background:blue;}
+.d4{background:orange;}
+.d5{background:purple;}
+
+/* Task 3 */
+.cards{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+.card{
+    width:180px;
+    border:1px solid #ccc;
+    padding:15px;
+    margin:5px;
+    text-align:center;
+    background:#fafafa;
+}
+.card button{
+    padding:8px 15px;
+    background:green;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+.card button:hover{
+    background:darkgreen;
+}
+
+/* Task 4 */
+.menu{
+    list-style:none;
+    padding:0;
+}
+.menu li{
+    display:inline-block;
+    background:#3498db;
+    color:white;
+    padding:12px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+.menu li:hover{
+    background:#1abc9c;
+}
+
+/* Task 5 */
+.boxes{
+    margin-top:20px;
+}
+.box{
+    display:inline-block;
+    width:80px;
+    height:80px;
+    background:tomato;
+    margin:10px;
+}
+.middle{
+    position:relative;
+    top:30px;
+    left:50px;
+    background:gold;
+}
+
+/* Task 6 */
+.container{
+    width:400px;
+    height:250px;
+    background:#ddd;
+    position:relative;
+    border:2px solid #333;
+}
+.small{
+    width:80px;
+    height:80px;
+    background:red;
+    position:absolute;
+    top:0;
+    right:0;
+}
+</style>
+
+</head>
+<body>
+
+<header>CSS Assignment</header>
+
+<!-- Task 1 -->
+<section>
+<h2>Task 1: Block Span Elements</h2>
+<div class="task1">
+<span>Span 1</span>
+<span>Span 2</span>
+<span>Span 3</span>
+</div>
+</section>
+
+<!-- Task 2 -->
+<section>
+<h2>Task 2: Horizontal Div Elements</h2>
+<div class="task2">
+<div class="d1">Div 1</div>
+<div class="d2">Div 2</div>
+<div class="d3">Div 3</div>
+</div>
+</section>
+
+<!-- Task 3 -->
+<section>
+<h2>Task 3: Product Cards</h2>
+<div class="cards">
+<div class="card">
+<h3>Product 1</h3>
+<p>₹500</p>
+<button>Buy</button>
+</div>
+
+<div class="card">
+<h3>Product 2</h3>
+<p>₹700</p>
+<button>Buy</button>
+</div>
+
+<div class="card">
+<h3>Product 3</h3>
+<p>₹900</p>
+<button>Buy</button>
+</div>
+
+<div class="card">
+<h3>Product 4</h3>
+<p>₹1200</p>
+<button>Buy</button>
+</div>
+</div>
+</section>
+
+<!-- Task 4 -->
+<section>
+<h2>Task 4: Horizontal Menu</h2>
+<ul class="menu">
+<li>Home</li>
+<li>About</li>
+<li>Services</li>
+<li>Gallery</li>
+<li>Contact</li>
+</ul>
+</section>
+
+<!-- Task 5 -->
+<section>
+<h2>Task 5: Move Middle Box</h2>
+<div class="boxes">
+<div class="box"></div>
+<div class="box middle"></div>
+<div class="box"></div>
+</div>
+</section>
+
+<!-- Task 6 -->
+<section>
+<h2>Task 6: Position Inside Container</h2>
+<div class="container">
+<div class="small"></div>
+</div>
+</section>
+
+<!-- Task 7 -->
+<section>
+<h2>Task 7: Scroll with Fixed Header</h2>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<p>Paragraph 3</p>
+<p>Paragraph 4</p>
+<p>Paragraph 5</p>
+
+</section>
+
+</body>
+</html>

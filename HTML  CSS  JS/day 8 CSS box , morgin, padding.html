@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Box Model Practice</title>
+
+    <style>
+
+        /* 1. Width 300px, Padding 20px, Green Border 10px */
+        .box1 {
+            width: 300px;
+            padding: 20px;
+            border: 10px solid green;
+        }
+
+
+        /* 2. DIV width 200px */
+        .box2 {
+            width: 200px;
+        }
+
+
+        /* 3. 2px solid red border */
+        .box3 {
+            border: 2px solid red;
+        }
+
+
+        /* 4. 25px space between border and content */
+        .box4 {
+            padding: 25px;
+            border: 2px solid black;
+        }
+
+
+        /* 5. 25px space outside on the left */
+        .box5 {
+            margin-left: 25px;
+            border: 2px solid black;
+        }
+
+
+        /* 7. Height calculation */
+        .box7 {
+            height: 50px;
+            padding: 15px;
+            border: 5px solid red;
+        }
+
+
+        /* 8. Width calculation */
+        .box8 {
+            width: 300px;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 10px;
+        }
+
+
+        /* 9. 600px centered div */
+        .box9 {
+            width: 600px;
+            padding: 20px;
+            border: 2px solid blue;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* 10. Equal-sized buttons */
+        .button-container {
+            width: 600px;
+            display: flex;
+        }
+
+        .button-container button {
+            flex: 1;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+
+        /* 11. Different padding on each side */
+        .box11 {
+            padding-top: 40px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+            padding-left: 50px;
+
+            border: 2px solid purple;
+        }
+
+
+        /* Box Model demonstration */
+        .box {
+            width: 300px;
+
+            margin: 30px;
+
+            border: 5px solid green;
+
+            padding: 25px;
+
+            background-color: lightyellow;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Box Model Practice</h1>
+
+
+    <h2>1. Width, Padding and Border</h2>
+
+    <div class="box1">
+        Width = 300px<br>
+        Padding = 20px<br>
+        Border = 10px green
+    </div>
+
+
+    <h2>2. DIV Width 200px</h2>
+
+    <div class="box2">
+        This DIV has a width of 200px.
+    </div>
+
+
+    <h2>3. Red Border</h2>
+
+    <div class="box3">
+        This DIV has a 2px solid red border.
+    </div>
+
+
+    <h2>4. Padding 25px</h2>
+
+    <div class="box4">
+        This text has 25px space inside the border.
+    </div>
+
+
+    <h2>5. Left Margin 25px</h2>
+
+    <div class="box5">
+        This DIV has 25px space outside on the left.
+    </div>
+
+
+    <h2>6. Box Model Formula</h2>
+
+    <p>
+        Total Width =
+        Content Width + Left Padding + Right Padding
+        + Left Border + Right Border
+    </p>
+
+
+    <h2>7. Total Height</h2>
+
+    <div class="box7">
+        Height = 50px
+    </div>
+
+    <p>
+        Total Height =
+        50 + 15 + 15 + 5 + 5
+        = <strong>90px</strong>
+    </p>
+
+
+    <h2>8. Total Width</h2>
+
+    <div class="box8">
+        Content Width = 300px
+    </div>
+
+    <p>
+        Element width =
+        300 + 20 + 20 + 5 + 5
+        = <strong>350px</strong>
+    </p>
+
+    <p>
+        Horizontal space including margins =
+        350 + 10 + 10
+        = <strong>370px</strong>
+    </p>
+
+
+    <h2>9. Centered 600px DIV</h2>
+
+    <div class="box9">
+        This 600px content-box is horizontally centered.
+    </div>
+
+
+    <h2>10. Equal-Sized Buttons</h2>
+
+    <div class="button-container">
+
+        <button>Button 1</button>
+
+        <button>Button 2</button>
+
+        <button>Button 3</button>
+
+    </div>
+
+
+    <h2>11. Different Padding</h2>
+
+    <div class="box11">
+        This box has different padding on every side.
+    </div>
+
+    <p>
+        Top = 40px |
+        Right = 10px |
+        Bottom = 20px |
+        Left = 50px
+    </p>
+
+
+    <h2>12. Complete Box Model</h2>
+
+    <div class="box">
+
+        This is the <strong>content</strong> of the box.
+
+        <br><br>
+
+        <strong>Content:</strong> Actual text<br>
+        <strong>Padding:</strong> Space inside the border<br>
+        <strong>Border:</strong> Visible outline<br>
+        <strong>Margin:</strong> Space outside the box
+
+    </div>
+
+
+</body>
+</html>

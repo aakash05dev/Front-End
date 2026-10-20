@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loops Exercise</title>
+</head>
+<body>
+  <h1>JS Loops</h1>
+
+  <script>
+    // 1. Series 1 to 20
+    console.log("1. Series 1 to 20");
+    for (let i = 1; i <= 20; i++)
+     console.log(i);
+    let i = 1; while (i <= 20) {
+         console.log(i); i++; 
+        }
+    i = 1; do { 
+        console.log(i); i++; 
+    } while (i <= 20);
+
+    // 2. Odd series 1 to 20
+    console.log("2. Odd series");
+    for (let j = 1; j <= 20; j += 2) console.log(j);
+    j = 1; while (j <= 20) { console.log(j); j += 2; }
+    j = 1; do { console.log(j); j += 2; } while (j <= 20);
+
+    // 3. Even series 0 to 20
+    console.log("3. Even series");
+    for (let k = 0; k <= 20; k += 2) console.log(k);
+    k = 0; while (k <= 20) { console.log(k); k += 2; }
+    k = 0; do { console.log(k); k += 2; } while (k <= 20);
+
+    // 4. Multiples of 5
+    console.log("4. Multiples of 5");
+    for (let m = 0; m <= 25; m += 5) console.log(m);
+    m = 0; while (m <= 25) { console.log(m); m += 5; }
+    m = 0; do { console.log(m); m += 5; } while (m <= 25);
+
+    // 5. Sum of 1 to 10
+    console.log("5. Sum of 1 to 10");
+    let sum = 0;
+    for (let n = 1; n <= 10; n++) sum += n;
+    console.log("For loop sum:", sum);
+    sum = 0; n = 1; while (n <= 10) { sum += n; n++; }
+    console.log("While loop sum:", sum);
+    sum = 0; n = 1; do { sum += n; n++; } while (n <= 10);
+    console.log("Do while sum:", sum);
+
+    // 6. Sum of even numbers up to 10
+    console.log("6. Sum of even numbers");
+    let sumEven = 0;
+    for (let e = 0; e <= 10; e += 2) sumEven += e;
+    console.log("For loop sum:", sumEven);
+    sumEven = 0; e = 0; while (e <= 10) { sumEven += e; e += 2; }
+    console.log("While loop sum:", sumEven);
+    sumEven = 0; e = 0; do { sumEven += e; e += 2; } while (e <= 10);
+    console.log("Do while sum:", sumEven);
+
+    // 7. Sum of odd numbers up to 10
+    console.log("7. Sum of odd numbers");
+    let sumOdd = 0;
+    for (let o = 1; o <= 10; o += 2) sumOdd += o;
+    console.log("For loop sum:", sumOdd);
+    sumOdd = 0; o = 1; while (o <= 10) { sumOdd += o; o += 2; }
+    console.log("While loop sum:", sumOdd);
+    sumOdd = 0; o = 1; do { sumOdd += o; o += 2; } while (o <= 10);
+    console.log("Do while sum:", sumOdd);
+
+    // 8. Sum of multiples of 5 up to 20
+    console.log("8. Sum of multiples of 5");
+    let sum5 = 0;
+    for (let p = 0; p <= 20; p += 5) sum5 += p;
+    console.log("For loop sum:", sum5);
+    sum5 = 0; p = 0; while (p <= 20) { sum5 += p; p += 5; }
+    console.log("While loop sum:", sum5);
+    sum5 = 0; p = 0; do { sum5 += p; p += 5; } while (p <= 20);
+    console.log("Do while sum:", sum5);
+
+    // 9. Series: 1/1! + 2/2! + 3/3! + 4/4!
+    console.log("9. Series 1/n!");
+    function factorial(n) { return n === 0 ? 1 : n * factorial(n-1); }
+    let series9 = 0;
+    for (let q = 1; q <= 4; q++) series9 += q / factorial(q);
+    console.log("For loop:", series9);
+    series9 = 0; q = 1; while (q <= 4) { series9 += q / factorial(q); q++; }
+    console.log("While loop:", series9);
+    series9 = 0; q = 1; do { series9 += q / factorial(q); q++; } while (q <= 4);
+    console.log("Do while:", series9);
+
+    // 10. Series: 0 + 2/2! + 4/4! + 6/6!
+    console.log("10. Even series n/n!");
+    let series10 = 0;
+    for (let r = 2; r <= 6; r += 2) series10 += r / factorial(r);
+    console.log("For loop:", series10);
+    series10 = 0; r = 2; while (r <= 6) { series10 += r / factorial(r); r += 2; }
+    console.log("While loop:", series10);
+    series10 = 0; r = 2; do { series10 += r / factorial(r); r += 2; } while (r <= 6);
+    console.log("Do while:", series10);
+
+    // 11. Series: 1/1! + 3/3! + 5/5!
+    console.log("11. Odd series n/n!");
+    let series11 = 0;
+    for (let s = 1; s <= 5; s += 2) series11 += s / factorial(s);
+    console.log("For loop:", series11);
+    series11 = 0; s = 1; while (s <= 5) { series11 += s / factorial(s); s += 2; }
+    console.log("While loop:", series11);
+    series11 = 0; s = 1; do { series11 += s / factorial(s); s += 2; } while (s <= 5);
+    console.log("Do while:", series11);
+  </script>
+</body>
+</html>

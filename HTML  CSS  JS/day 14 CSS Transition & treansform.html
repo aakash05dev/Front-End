@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Effects, Fonts and Responsive Design</title>
+
+    <style>
+
+        /* ================================
+           1. Basic Hover Color Change
+        ================================= */
+
+        .hover-box {
+            width: 200px;
+            padding: 20px;
+            background-color: lightblue;
+
+            transition: background-color 0.5s;
+        }
+
+        .hover-box:hover {
+            background-color: orange;
+        }
+
+
+        /* ================================
+           2. Grow Element on Hover
+        ================================= */
+
+        .grow-box {
+            width: 150px;
+            padding: 30px;
+            background-color: lightgreen;
+
+            transition: transform 0.5s;
+        }
+
+        .grow-box:hover {
+            transform: scale(1.2);
+        }
+
+
+        /* ================================
+           3. Change Color, Size and Shadow
+        ================================= */
+
+        .effect-box {
+            width: 200px;
+            padding: 20px;
+            background-color: pink;
+
+            transition: all 0.5s;
+        }
+
+        .effect-box:hover {
+            background-color: purple;
+            color: white;
+            font-size: 25px;
+            box-shadow: 5px 5px 15px gray;
+        }
+
+
+        /* ================================
+           4. Reveal Content
+        ================================= */
+
+        .reveal {
+            width: 250px;
+            padding: 20px;
+            background-color: lightgray;
+        }
+
+        .hidden-content {
+            opacity: 0;
+
+            transition: opacity 1s;
+        }
+
+        .reveal:hover .hidden-content {
+            opacity: 1;
+        }
+
+
+        /* ================================
+           5. Different Fonts
+        ================================= */
+
+        .font-heading {
+            font-family: Georgia, serif;
+            font-size: 32px;
+        }
+
+        .font-paragraph {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+
+        .font-special {
+            font-family: "Courier New", monospace;
+            font-size: 20px;
+        }
+
+
+        /* ================================
+           6. Text Styles
+        ================================= */
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .strike {
+            text-decoration: line-through;
+        }
+
+
+        /* ================================
+           7. 80% Width, Maximum 600px
+        ================================= */
+
+        .responsive-box {
+            width: 80%;
+            max-width: 600px;
+
+            padding: 20px;
+            background-color: lightyellow;
+
+            box-sizing: border-box;
+        }
+
+
+        /* ================================
+           8. Font Size 1.5rem
+        ================================= */
+
+        .rem-text {
+            font-size: 1.5rem;
+        }
+
+
+        /* ================================
+           9. VW Heading
+        ================================= */
+
+        .vw-heading {
+            font-size: 5vw;
+        }
+
+
+        /* ================================
+           10. Media Query
+        ================================= */
+
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        @media (max-width: 768px) {
+
+            body {
+                background-color: lightblue;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>CSS Effects and Responsive Design</h1>
+
+
+    <!-- 1. Hover Color -->
+
+    <h2>1. Basic Hover Color Change</h2>
+
+    <div class="hover-box">
+        Move your mouse over me
+    </div>
+
+
+    <hr>
+
+
+    <!-- 2. Grow -->
+
+    <h2>2. Grow on Hover</h2>
+
+    <div class="grow-box">
+        Hover Me
+    </div>
+
+
+    <hr>
+
+
+    <!-- 3. Color Size Shadow -->
+
+    <h2>3. Color, Size and Shadow</h2>
+
+    <div class="effect-box">
+        Hover over this box
+    </div>
+
+
+    <hr>
+
+
+    <!-- 4. Reveal -->
+
+    <h2>4. Reveal Content</h2>
+
+    <div class="reveal">
+
+        <p>Hover over this box.</p>
+
+        <p class="hidden-content">
+            🎉 Hidden content is now visible!
+        </p>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- 5. Fonts -->
+
+    <h2>5. Different Font Families</h2>
+
+    <h1 class="font-heading">
+        Georgia Heading
+    </h1>
+
+    <p class="font-paragraph">
+        This paragraph uses Arial font.
+    </p>
+
+    <p class="font-special">
+        This text uses Courier New font.
+    </p>
+
+
+    <hr>
+
+
+    <!-- 6. Text Styles -->
+
+    <h2>6. Text Styles</h2>
+
+    <p class="bold">
+        This text is Bold.
+    </p>
+
+    <p class="italic">
+        This text is Italic.
+    </p>
+
+    <p class="underline">
+        This text is Underlined.
+    </p>
+
+    <p class="strike">
+        This text has a Line Through.
+    </p>
+
+
+    <hr>
+
+
+    <!-- 7. Responsive Width -->
+
+    <h2>7. Responsive Width</h2>
+
+    <div class="responsive-box">
+
+        This box takes 80% of the available screen width,
+        but it will never become wider than 600px.
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- 8. REM -->
+
+    <h2>8. Font Size Using REM</h2>
+
+    <p class="rem-text">
+        This paragraph has a font size of 1.5rem.
+    </p>
+
+    <p>
+        REM is relative to the root HTML font size.
+        If the default root size is 16px,
+        1.5rem = 24px.
+    </p>
+
+
+    <hr>
+
+
+    <!-- 9. VW -->
+
+    <h2 class="vw-heading">
+        Responsive VW Heading
+    </h2>
+
+    <p>
+        This heading uses 5vw.
+        Its size changes according to the width of the screen.
+    </p>
+
+
+    <hr>
+
+
+    <!-- 10. Media Query -->
+
+    <h2>10. Media Query</h2>
+
+    <p>
+        Resize the browser window.
+    </p>
+
+    <p>
+        When the screen width is below 768px,
+        the background color changes to light blue.
+    </p>
+
+
+</body>
+
+</html>

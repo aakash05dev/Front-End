@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h2>Finding HTML Elements by Tag Name</h2>
+
+<div id="main">
+<p>Finding HTML Elements by Tag Name</p>
+<p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+
+<h3>Sample1</h3>
+<h4>Sample2</h4>
+<h3>Sample3</h3>
+<h4>Sample4</h4>
+</div>
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("main");
+const y = x.getElementsByTagName("h3");
+
+document.getElementById("demo").innerHTML = 'The first h3 (index 0) inside "main" is: ' + y[2].innerHTML ;
+
+
+</script> -->
+
+
+
+
+
+<!-- <h2>HTML Elements by Class Name</h2>
+
+<p>Finding HTML Elements by Class Name.</p>
+<p class="intro">Hello World!</p>
+<p class="intro">Welcome to India.</p>
+<p class="intro">Welcome to Java Script DOM.</p>
+<p id="demo"></p>
+
+<script>
+const x = document.getElementsByClassName("intro");
+document.getElementById("demo").innerHTML = 'The Third paragraph (index 2) with class="intro" is: ' + x[2].innerHTML;
+</script> -->
+
+
+
+
+ <!-- <h2>HTML Elements by Query Selector</h2>
+
+    <p>Finding HTML Elements by Query Selector</p>
+    Finding HTML Elements by CSS Selectors
+    <div id="container">
+      <p class="intro">Welcome!</p>
+      <p>Another paragraph 123.</p>
+    </div>
+
+    <p id="demo"></p>
+    <script>
+   
+      const x = document.querySelector("#container.intro");
+
+      document.getElementById("demo").innerHTML = "Sample  " + x.innerHTML;
+
+    </script> -->
+
+
+
+
+<h2>HTML Elements by Query Selector</h2>
+
+<p>Finding HTML Elements by Query Selector</p>
+
+<p class="intro">Hello World!.</p>
+<p class="intro">Welcome to India.</p>
+<p class="intro">Welcome to Java Script DOM.</p>
+<p class="intro">Welcome to Chennai.</p>
+
+<p id="demo"></p>
+
+<script>
+const x = document.querySelectorAll("p.intro");
+document.getElementById("demo").innerHTML = 'The Third paragraph (index 2) with class="intro" is: ' + x[2].innerHTML;
+</script>
+
+<p>class & id used in second sample</p>
+ <div id="samp">
+        <p>This is paragraph 1.</p>
+        <p>This is paragraph 2.</p>
+    </div>
+
+<p id="demo1"></p>
+<script>    
+     let y = document.getElementById("samp").querySelectorAll("p");
+document.getElementById("demo1").innerHTML = "from inside the div tag text of the paragraph 1 is: " + y[1].innerHTML;
+
+</script>
+
+</body>
+</html>

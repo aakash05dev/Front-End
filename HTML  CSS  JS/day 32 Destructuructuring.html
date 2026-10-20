@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 1. Array Destructuring
+let numbers = [10, 20, 30, 40, 50];
+
+let [first, second] = numbers;
+
+console.log("1. First:", first);
+console.log("   Second:", second);
+
+
+// 2. Array Destructuring with Rest Operator
+let colors = ["Red", "Blue", "Green", "Yellow", "Orange"];
+
+let [color1, ...remainingColors] = colors;
+
+console.log("2. First Color:", color1);
+console.log("   Remaining Colors:", remainingColors);
+
+
+// 3. Object Destructuring
+let person = {
+    name: "Akash",
+    age: 25,
+    city: "Chennai"
+};
+
+let { name, age, city } = person;
+
+console.log("3. Name:", name);
+console.log("   Age:", age);
+console.log("   City:", city);
+
+
+// 4. Object Destructuring with Renaming
+let student = {
+    name: "Rahul",
+    age: 22,
+    course: "Python Full Stack"
+};
+
+let { name: studentName, age: studentAge, course } = student;
+
+console.log("4. Student Name:", studentName);
+console.log("   Age:", studentAge);
+console.log("   Course:", course);
+
+
+// 5. Spread Operator - Merge Arrays
+let fruits = ["Apple", "Banana"];
+let vegetables = ["Carrot", "Potato"];
+
+let food = [...fruits, ...vegetables];
+
+console.log("5. Merged Array:", food);
+
+// 6. Spread Operator - Add Elements
+let oldColors = ["Blue", "Green", "Yellow"];
+
+let newColors = ["Red", ...oldColors, "Orange"];
+
+console.log("6. New Colors:", newColors);
+
+// 7. Spread Operator - Add Object Property
+let employee = {
+    name: "Akash",
+    age: 25
+};
+
+let employeeDetails = {
+    ...employee,
+    city: "Chennai"
+};
+
+console.log("7. Employee Details:", employeeDetails);
+
+
+// 8. Rest Operator - Sum of Arguments
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log("8. Sum:", sum(10, 20, 30, 40));
+
+// 9. Rest Operator - Name + Remaining Arguments
+function studentInfo(name, ...subjects) {
+    console.log("9. Name:", name);
+    console.log("   Subjects:", subjects);
+}
+
+studentInfo("Akash", "JavaScript", "HTML", "CSS", "Python");
+
+// 10. Destructuring with Rest Operator
+let nums = [100, 200, 300, 400, 500, 600];
+
+let [firstNumber, ...remainingNumbers] = nums;
+
+console.log("10. First Number:", firstNumber);
+console.log("    Remaining Numbers:", remainingNumbers);
+    </script>
+</body>
+<h1>
+    JS Destructuring, Spread & Rest Operators
+</h1>
+</html>

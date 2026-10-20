@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Promise resolves after 2 seconds
+let promise1 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("Welcome to Js Promise");
+    }, 2000);
+});
+
+promise1.then((result) => console.log("1.", result));
+
+
+// 2. Promise rejects after 3 seconds
+let promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject("Invalid Data");
+    }, 3000);
+});
+
+promise2.catch((error) => console.log("2.", error));
+
+
+// 3. checkNumber(num)
+// Resolve if Odd, Reject if Even
+function checkNumber(num) {
+    return new Promise((resolve, reject) => {
+        if (num % 2 !== 0) {
+            resolve("Number is Odd");
+        } else {
+            reject("Number is Even");
+        }
+    });
+}
+
+checkNumber(7)
+    .then((result) => console.log("3.", result))
+    .catch((error) => console.log("3.", error));
+
+
+// 4. Check age
+function checkAge(age) {
+    return new Promise((resolve, reject) => {
+        if (age >= 18) {
+            resolve("Eligible for Employement");
+        } else {
+            reject("Not eligible for Employement");
+        }
+    });
+}
+
+checkAge(20)
+    .then((result) => console.log("4.", result))
+    .catch((error) => console.log("4.", error));
+
+
+// 5. Sum(a, b) using Promise
+function Sum(a, b) {
+    return new Promise((resolve, reject) => {
+        if (b < 0) {
+            reject("b should not be negative");
+        } else {
+            resolve(a + b);
+        }
+    });
+}
+
+Sum(10, 20)
+    .then((result) => console.log("5. Sum =", result))
+    .catch((error) => console.log("5.", error));
+
+
+// 6. Food ordering Promise
+function orderFood() {
+    return new Promise((resolve) => {
+        console.log("6. Order placed");
+
+        setTimeout(() => {
+            resolve("Food is ready");
+        }, 5000);
+    });
+}
+
+orderFood()
+    .then((result) => console.log("6.", result));
+
+
+// 7. Check whether string is empty
+function checkString(str) {
+    return new Promise((resolve, reject) => {
+        if (str.length > 0) {
+            resolve("String contains characters");
+        } else {
+            reject("String is empty");
+        }
+    });
+}
+
+checkString("JavaScript")
+    .then((result) => console.log("7.", result))
+    .catch((error) => console.log("7.", error));
+
+
+// 8. findEven(num)
+// Resolve if Even, Reject if Odd
+function findEven(num) {
+    return new Promise((resolve, reject) => {
+        if (num % 2 === 0) {
+            resolve("Number is Even");
+        } else {
+            reject("Number is Odd");
+        }
+    });
+}
+
+findEven(10)
+    .then((result) => console.log("8.", result))
+    .catch((error) => console.log("8.", error));
+
+
+// 9. Promise.all()
+let p1 = new Promise((resolve) => {
+    setTimeout(() => resolve("Promise 1 completed"), 1000);
+});
+
+let p2 = new Promise((resolve) => {
+    setTimeout(() => resolve("Promise 2 completed"), 2000);
+});
+
+let p3 = new Promise((resolve) => {
+    setTimeout(() => resolve("Promise 3 completed"), 3000);
+});
+
+Promise.all([p1, p2, p3])
+    .then((results) => {
+        console.log("9. Promise.all Results:");
+        console.log(results);
+    });
+
+
+// 10. Promise.race()
+let r1 = new Promise((resolve) => {
+    setTimeout(() => resolve("Promise 1 completed first"), 3000);
+});
+
+let r2 = new Promise((resolve) => {
+    setTimeout(() => resolve("Promise 2 completed first"), 1000);
+});
+
+let r3 = new Promise((resolve, reject) => {
+    setTimeout(() => reject("Promise 3 rejected"), 2000);
+});
+
+Promise.race([r1, r2, r3])
+    .then((result) => console.log("10.", result))
+    .catch((error) => console.log("10.", error));
+    </script>
+    
+</body>
+<h1>JS Promise</h1>
+</html>

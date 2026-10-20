@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Forms and Attributes</title>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+  <form action="#" method="post">
+
+    <!-- Text input -->
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required maxlength="50"><br><br>
+
+    <!-- Email input -->
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="example@mail.com" required><br><br>
+
+    <!-- Password input -->
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required minlength="6"><br><br>
+
+    <!-- Number input -->
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" min="18" max="100" step="1"><br><br>
+
+    <!-- Radio buttons -->
+    <label>Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="Male" checked> Male
+    <input type="radio" id="female" name="gender" value="Female"> Female<br><br>
+
+    <!-- Checkbox -->
+    <label>Interests:</label><br>
+    <input type="checkbox" name="interest" value="Movies"> Movies
+    <input type="checkbox" name="interest" value="Music"> Music
+    <input type="checkbox" name="interest" value="Sports"> Sports<br><br>
+
+    <!-- Dropdown -->
+    <label for="country">Country:</label><br>
+    <select id="country" name="country" required>
+      <option value="">--Select--</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+    </select><br><br>
+
+    <!-- Textarea -->
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" cols="40" placeholder="Write something..."></textarea><br><br>
+
+    <!-- Buttons -->
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+  </form>
+
+</body>
+</html>

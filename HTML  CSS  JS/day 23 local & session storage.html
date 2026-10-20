@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Feedback Form</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f2f4f7;
+    margin: 0;
+    padding: 30px 15px;
+    color: #222;
+  }
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 30px 35px 40px;
+  }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+  }
+  p.subtitle {
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+  .field {
+    margin-bottom: 22px;
+  }
+  label.main-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #1a1a2e;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  textarea { resize: vertical; min-height: 70px; }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
+  }
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .option-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8f9fb;
+    border: 1px solid #e2e5eb;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.15s;
+  }
+  .option-item:hover { border-color: #4f46e5; }
+  .option-item input { margin: 0; cursor: pointer; }
+  .option-item.checked {
+    background: #eef0ff;
+    border-color: #4f46e5;
+  }
+  .error {
+    color: #d9363e;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+  }
+  .field.invalid input,
+  .field.invalid textarea {
+    border-color: #d9363e;
+  }
+  .field.invalid .error { display: block; }
+  small.hint {
+    display: block;
+    color: #888;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  button {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  button:hover { background: #4338ca; }
+  button.secondary {
+    background: #fff;
+    color: #4f46e5;
+    border: 1px solid #4f46e5;
+    margin-left: 10px;
+  }
+  button.secondary:hover { background: #eef0ff; }
+  .actions { margin-top: 30px; display: flex; align-items: center; }
+  .banner {
+    display: none;
+    background: #e6f8ec;
+    border: 1px solid #34c759;
+    color: #1b7a34;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .autosave-note {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 20px;
+  }
+  hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
+  .responses-section h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .response-card {
+    background: #f8f9fb;
+    border: 1px solid #e2e5eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    position: relative;
+  }
+  .response-card .del-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: #d9363e;
+    border: none;
+    font-size: 12px;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+  .response-card .del-btn:hover { text-decoration: underline; }
+  .response-card strong { color: #1a1a2e; }
+  .response-card .meta {
+    color: #999;
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  .empty-state {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Customer Feedback Form</h1>
+  <p class="subtitle">We value your feedback — it helps us improve. Your response is saved locally in your browser.</p>
+
+  <div id="banner" class="banner">✅ Thank you! Your feedback has been submitted and saved.</div>
+
+  <form id="feedbackForm" novalidate>
+
+    <div class="field" id="field-fullName">
+      <label class="main-label">1. Full Name *</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+      <div class="error">Please enter your full name.</div>
+    </div>
+
+    <div class="field" id="field-email">
+      <label class="main-label">2. Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com">
+      <div class="error">Please enter a valid email address.</div>
+    </div>
+
+    <div class="field" id="field-reason">
+      <label class="main-label">3. Reason for Visit / Purchase *</label>
+      <div class="options" data-group="reason">
+        <label class="option-item"><input type="radio" name="reason" value="Product Purchase"> Product Purchase</label>
+        <label class="option-item"><input type="radio" name="reason" value="Customer Support"> Customer Support</label>
+        <label class="option-item"><input type="radio" name="reason" value="Browsing / Research"> Browsing / Research</label>
+        <label class="option-item"><input type="radio" name="reason" value="Other"> Other</label>
+      </div>
+      <div class="error">Please select a reason.</div>
+    </div>
+
+    <div class="field" id="field-satisfaction">
+      <label class="main-label">4. Overall Satisfaction *</label>
+      <div class="options" data-group="satisfaction">
+        <label class="option-item"><input type="radio" name="satisfaction" value="1 - Very Dissatisfied"> 1 - Very Dissatisfied</label>
+        <label class="option-item"><input type="radio" name="satisfaction" value="2 - Dissatisfied"> 2 - Dissatisfied</label>
+        <label class="option-item"><input type="radio" name="satisfaction" value="3 - Neutral"> 3 - Neutral</label>
+        <label class="option-item"><input type="radio" name="satisfaction" value="4 - Satisfied"> 4 - Satisfied</label>
+        <label class="option-item"><input type="radio" name="satisfaction" value="5 - Very Satisfied"> 5 - Very Satisfied</label>
+      </div>
+      <div class="error">Please rate your overall satisfaction.</div>
+    </div>
+
+    <div class="field" id="field-easeOfUse">
+      <label class="main-label">5. Ease of Use / Navigation *</label>
+      <div class="options" data-group="easeOfUse">
+        <label class="option-item"><input type="radio" name="easeOfUse" value="Very Easy"> Very Easy</label>
+        <label class="option-item"><input type="radio" name="easeOfUse" value="Easy"> Easy</label>
+        <label class="option-item"><input type="radio" name="easeOfUse" value="Neutral"> Neutral</label>
+        <label class="option-item"><input type="radio" name="easeOfUse" value="Difficult"> Difficult</label>
+        <label class="option-item"><input type="radio" name="easeOfUse" value="Very Difficult"> Very Difficult</label>
+      </div>
+      <div class="error">Please rate ease of use.</div>
+    </div>
+
+    <div class="field" id="field-quality">
+      <label class="main-label">6. Product / Service Quality *</label>
+      <div class="options" data-group="quality">
+        <label class="option-item"><input type="radio" name="quality" value="Excellent"> Excellent</label>
+        <label class="option-item"><input type="radio" name="quality" value="Good"> Good</label>
+        <label class="option-item"><input type="radio" name="quality" value="Average"> Average</label>
+        <label class="option-item"><input type="radio" name="quality" value="Poor"> Poor</label>
+        <label class="option-item"><input type="radio" name="quality" value="Very Poor"> Very Poor</label>
+      </div>
+      <div class="error">Please rate product/service quality.</div>
+    </div>
+
+    <div class="field" id="field-staffHelpfulness">
+      <label class="main-label">7. Staff / Customer Support Helpfulness *</label>
+      <div class="options" data-group="staffHelpfulness">
+        <label class="option-item"><input type="radio" name="staffHelpfulness" value="N/A - No interaction"> N/A - No interaction</label>
+        <label class="option-item"><input type="radio" name="staffHelpfulness" value="Extremely Helpful"> Extremely Helpful</label>
+        <label class="option-item"><input type="radio" name="staffHelpfulness" value="Somewhat Helpful"> Somewhat Helpful</label>
+        <label class="option-item"><input type="radio" name="staffHelpfulness" value="Unhelpful"> Unhelpful</label>
+      </div>
+      <div class="error">Please select an option.</div>
+    </div>
+
+    <div class="field" id="field-nps">
+      <label class="main-label">8. How likely are you to recommend us to a friend? *</label>
+      <input type="number" id="nps" name="nps" min="0" max="10" placeholder="Score 0 (Not at all likely) to 10 (Extremely likely)">
+      <small class="hint">Enter a whole number from 0 to 10.</small>
+      <div class="error">Please enter a score between 0 and 10.</div>
+    </div>
+
+    <div class="field" id="field-improve">
+      <label class="main-label">9. What can we improve? (select all that apply)</label>
+      <div class="options" data-group="improve">
+        <label class="option-item"><input type="checkbox" name="improve" value="Product Selection"> Product Selection</label>
+        <label class="option-item"><input type="checkbox" name="improve" value="Pricing"> Pricing</label>
+        <label class="option-item"><input type="checkbox" name="improve" value="Website / App"> Website / App</label>
+        <label class="option-item"><input type="checkbox" name="improve" value="Delivery / Service Speed"> Delivery / Service Speed</label>
+        <label class="option-item"><input type="checkbox" name="improve" value="Customer Support"> Customer Support</label>
+      </div>
+    </div>
+
+    <div class="field" id="field-comments">
+      <label class="main-label">10. Additional Comments</label>
+      <textarea id="comments" name="comments" placeholder="Anything else you'd like to share..."></textarea>
+    </div>
+
+    <p class="autosave-note" id="autosaveNote">Draft auto-saves to this browser tab as you type (session storage).</p>
+
+    <div class="actions">
+      <button type="submit">Submit Feedback</button>
+      <button type="button" class="secondary" id="clearDraftBtn">Clear Draft</button>
+    </div>
+  </form>
+
+  <hr>
+
+  <div class="responses-section">
+    <h2>Saved Responses (<span id="responseCount">0</span>)</h2>
+    <div id="responsesList"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const form = document.getElementById('feedbackForm');
+  const banner = document.getElementById('banner');
+  const responsesList = document.getElementById('responsesList');
+  const responseCount = document.getElementById('responseCount');
+  const clearDraftBtn = document.getElementById('clearDraftBtn');
+
+  const STORAGE_KEY = 'customerFeedbackResponses'; // localStorage - permanent
+  const DRAFT_KEY = 'customerFeedbackDraft';        // sessionStorage - per tab session
+
+  const textFields = ['fullName', 'email', 'nps', 'comments'];
+  const radioGroups = ['reason', 'satisfaction', 'easeOfUse', 'quality', 'staffHelpfulness'];
+
+  // ---------- Style checked option boxes ----------
+  form.addEventListener('change', function (e) {
+    if (e.target.matches('input[type="radio"], input[type="checkbox"]')) {
+      const group = e.target.closest('.options');
+      group.querySelectorAll('.option-item').forEach(item => {
+        const input = item.querySelector('input');
+        item.classList.toggle('checked', input.checked);
+      });
+    }
+    saveDraft();
+  });
+  form.addEventListener('input', saveDraft);
+
+  // ---------- Draft autosave (sessionStorage) ----------
+  function getFormData() {
+    const data = {};
+    textFields.forEach(id => data[id] = document.getElementById(id).value);
+    radioGroups.forEach(name => {
+      const checked = form.querySelector(`input[name="${name}"]:checked`);
+      data[name] = checked ? checked.value : '';
+    });
+    data.improve = Array.from(form.querySelectorAll('input[name="improve"]:checked')).map(el => el.value);
+    return data;
+  }
+
+  function saveDraft() {
+    try {
+      sessionStorage.setItem(DRAFT_KEY, JSON.stringify(getFormData()));
+    } catch (err) {
+      console.error('Session storage error:', err);
+    }
+  }
+
+  function loadDraft() {
+    try {
+      const raw = sessionStorage.getItem(DRAFT_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      textFields.forEach(id => {
+        if (data[id]) document.getElementById(id).value = data[id];
+      });
+      radioGroups.forEach(name => {
+        if (data[name]) {
+          const input = form.querySelector(`input[name="${name}"][value="${CSS.escape(data[name])}"]`);
+          if (input) {
+            input.checked = true;
+            input.closest('.option-item').classList.add('checked');
+          }
+        }
+      });
+      if (Array.isArray(data.improve)) {
+        data.improve.forEach(val => {
+          const input = form.querySelector(`input[name="improve"][value="${CSS.escape(val)}"]`);
+          if (input) {
+            input.checked = true;
+            input.closest('.option-item').classList.add('checked');
+          }
+        });
+      }
+    } catch (err) {
+      console.log('No draft found or failed to parse:', err);
+    }
+  }
+
+  clearDraftBtn.addEventListener('click', function () {
+    try {
+      sessionStorage.removeItem(DRAFT_KEY);
+    } catch (err) {
+      console.error('Session storage error:', err);
+    }
+    form.reset();
+    form.querySelectorAll('.option-item.checked').forEach(el => el.classList.remove('checked'));
+    clearFieldErrors();
+  });
+
+  // ---------- Validation ----------
+  function clearFieldErrors() {
+    form.querySelectorAll('.field.invalid').forEach(f => f.classList.remove('invalid'));
+  }
+
+  function markInvalid(fieldId) {
+    document.getElementById(fieldId).classList.add('invalid');
+  }
+
+  function validate(data) {
+    clearFieldErrors();
+    let valid = true;
+
+    if (!data.fullName.trim()) { markInvalid('field-fullName'); valid = false; }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email.trim())) { markInvalid('field-email'); valid = false; }
+
+    if (!data.reason) { markInvalid('field-reason'); valid = false; }
+    if (!data.satisfaction) { markInvalid('field-satisfaction'); valid = false; }
+    if (!data.easeOfUse) { markInvalid('field-easeOfUse'); valid = false; }
+    if (!data.quality) { markInvalid('field-quality'); valid = false; }
+    if (!data.staffHelpfulness) { markInvalid('field-staffHelpfulness'); valid = false; }
+
+    const npsVal = data.nps.trim();
+    if (npsVal === '' || isNaN(npsVal) || Number(npsVal) < 0 || Number(npsVal) > 10) {
+      markInvalid('field-nps'); valid = false;
+    }
+
+    return valid;
+  }
+
+  // ---------- Submit (localStorage) ----------
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = getFormData();
+    if (!validate(data)) {
+      banner.style.display = 'none';
+      return;
+    }
+
+    data.submittedAt = new Date().toLocaleString();
+
+    try {
+      const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      existing.unshift(data);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+    } catch (err) {
+      console.error('Local storage error:', err);
+      alert('Could not save your response. Your browser storage may be full or disabled.');
+      return;
+    }
+
+    try {
+      sessionStorage.removeItem(DRAFT_KEY);
+    } catch (err) {
+      console.error('Session storage error:', err);
+    }
+
+    form.reset();
+    form.querySelectorAll('.option-item.checked').forEach(el => el.classList.remove('checked'));
+    clearFieldErrors();
+
+    banner.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => banner.style.display = 'none', 4000);
+
+    renderResponses();
+  });
+
+  // ---------- Render saved responses ----------
+  function renderResponses() {
+    let data = [];
+    try {
+      data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    } catch (err) {
+      console.error('Local storage read error:', err);
+    }
+
+    responseCount.textContent = data.length;
+
+    if (data.length === 0) {
+      responsesList.innerHTML = '<div class="empty-state">No responses saved yet.</div>';
+      return;
+    }
+
+    responsesList.innerHTML = data.map((r, idx) => `
+      <div class="response-card">
+        <button class="del-btn" data-idx="${idx}">Delete</button>
+        <div class="meta">${r.submittedAt || ''}</div>
+        <strong>${escapeHtml(r.fullName)}</strong> — ${escapeHtml(r.email)}<br>
+        Reason: ${escapeHtml(r.reason)} | Satisfaction: ${escapeHtml(r.satisfaction)}<br>
+        Ease of Use: ${escapeHtml(r.easeOfUse)} | Quality: ${escapeHtml(r.quality)}<br>
+        Support: ${escapeHtml(r.staffHelpfulness)} | NPS: ${escapeHtml(r.nps)}<br>
+        ${r.improve && r.improve.length ? 'Improve: ' + escapeHtml(r.improve.join(', ')) + '<br>' : ''}
+        ${r.comments ? 'Comments: ' + escapeHtml(r.comments) : ''}
+      </div>
+    `).join('');
+
+    responsesList.querySelectorAll('.del-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const idx = Number(this.getAttribute('data-idx'));
+        deleteResponse(idx);
+      });
+    });
+  }
+
+  function deleteResponse(idx) {
+    try {
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      data.splice(idx, 1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      renderResponses();
+    } catch (err) {
+      console.error('Local storage error:', err);
+    }
+  }
+
+  function escapeHtml(str) {
+    if (str === undefined || str === null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // ---------- Init ----------
+  loadDraft();
+  renderResponses();
+})();
+</script>
+</body>
+</html>

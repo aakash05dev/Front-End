@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 1. Wait for 2 seconds
+async function waitTask() {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log("1. Task completed");
+}
+
+
+// 2. Fetch user data
+async function getUser() {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    return "Akash";
+}
+
+
+// 3. Addition with delay
+async function addition(a, b) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return a + b;
+}
+
+
+// 4. Sequential execution
+async function task1() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("4. Task 1 completed");
+}
+
+async function task2() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("4. Task 2 completed");
+}
+
+async function task3() {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("4. Task 3 completed");
+}
+
+
+// 5. Order food
+async function orderFood() {
+    console.log("5. Order placed");
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log("5. Food is ready");
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("5. Enjoy your meal");
+}
+
+
+// 6. Download a file
+async function downloadFile() {
+    console.log("6. Download started...");
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    console.log("6. Download completed");
+}
+
+
+// 7. Check even or odd
+async function checkEvenOdd(num) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    if (num % 2 === 0) {
+        console.log("7. Number is Even");
+    } else {
+        console.log("7. Number is Odd");
+    }
+}
+
+
+// 8. Handle errors
+async function handleError() {
+    try {
+        throw new Error("Something went wrong!");
+    } catch (error) {
+        console.log("8. Error:", error.message);
+    }
+}
+
+
+// 9. Multiple promises
+async function multiplePromises() {
+
+    let promise1 = new Promise(resolve =>
+        setTimeout(() => resolve("Promise 1 completed"), 1000)
+    );
+
+    let promise2 = new Promise(resolve =>
+        setTimeout(() => resolve("Promise 2 completed"), 2000)
+    );
+
+    let promise3 = new Promise(resolve =>
+        setTimeout(() => resolve("Promise 3 completed"), 3000)
+    );
+
+    console.log("9.", await promise1);
+    console.log("9.", await promise2);
+    console.log("9.", await promise3);
+}
+
+
+// 10. Student result
+async function studentResult(mark) {
+    if (mark > 35) {
+        return "Pass";
+    } else {
+        return "Fail";
+    }
+}
+
+
+// Main function
+async function main() {
+
+    await waitTask();
+
+    let user = await getUser();
+    console.log("2. User Name:", user);
+
+    let sum = await addition(10, 20);
+    console.log("3. Addition:", sum);
+
+    await task1();
+    await task2();
+    await task3();
+
+    await orderFood();
+
+    await downloadFile();
+
+    await checkEvenOdd(10);
+
+    await handleError();
+
+    await multiplePromises();
+
+    let result = await studentResult(75);
+    console.log("10. Student Result:", result);
+}
+
+main();
+    </script>
+    
+</body>
+<h1>
+    JS async / await
+</h1>
+</html>
